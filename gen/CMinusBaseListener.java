@@ -135,6 +135,18 @@ public class CMinusBaseListener implements CMinusListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFormalParameterDeclaratorId(CMinusParser.FormalParameterDeclaratorIdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFormalParameterDeclaratorId(CMinusParser.FormalParameterDeclaratorIdContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFormalParameter(CMinusParser.FormalParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -346,6 +358,18 @@ public class CMinusBaseListener implements CMinusListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArguments(CMinusParser.ArgumentsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLocalVariableDeclarationStatementErro(CMinusParser.LocalVariableDeclarationStatementErroContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLocalVariableDeclarationStatementErro(CMinusParser.LocalVariableDeclarationStatementErroContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

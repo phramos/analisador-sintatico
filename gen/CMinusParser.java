@@ -16,7 +16,7 @@ public class CMinusParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, INT=4, FLOAT=5, STRUCT=6, IF=7, ELSE=8, WHILE=9, 
+		T__0=1, T__1=2, INT=3, FLOAT=4, CHAR=5, STRUCT=6, IF=7, ELSE=8, WHILE=9, 
 		VOID=10, RETURN=11, IntegerLiteral=12, FloatingPointLiteral=13, CharacterLiteral=14, 
 		StringLiteral=15, LPAREN=16, RPAREN=17, LBRACE=18, RBRACE=19, LBRACK=20, 
 		RBRACK=21, SEMI=22, ASSIGN=23, LT=24, EQUAL=25, LE=26, GE=27, NOTEQUAL=28, 
@@ -25,31 +25,33 @@ public class CMinusParser extends Parser {
 		RULE_compilationUnit = 0, RULE_methodDeclaration = 1, RULE_variableDeclarators = 2, 
 		RULE_variableDeclarator = 3, RULE_variableDeclaratorId = 4, RULE_variableInitializer = 5, 
 		RULE_typeType = 6, RULE_primitiveType = 7, RULE_formalParameters = 8, 
-		RULE_formalParameterList = 9, RULE_formalParameter = 10, RULE_methodBody = 11, 
-		RULE_literal = 12, RULE_structDeclaration = 13, RULE_structVaribleDeclaration = 14, 
-		RULE_structVariableInitializer = 15, RULE_structDeclarationStatement = 16, 
-		RULE_block = 17, RULE_blockStatement = 18, RULE_localVariableDeclarationStatement = 19, 
-		RULE_localVariableDeclaration = 20, RULE_statement = 21, RULE_parExpression = 22, 
-		RULE_expressionList = 23, RULE_statementExpression = 24, RULE_expression = 25, 
-		RULE_primary = 26, RULE_arguments = 27;
+		RULE_formalParameterList = 9, RULE_formalParameterDeclaratorId = 10, RULE_formalParameter = 11, 
+		RULE_methodBody = 12, RULE_literal = 13, RULE_structDeclaration = 14, 
+		RULE_structVaribleDeclaration = 15, RULE_structVariableInitializer = 16, 
+		RULE_structDeclarationStatement = 17, RULE_block = 18, RULE_blockStatement = 19, 
+		RULE_localVariableDeclarationStatement = 20, RULE_localVariableDeclaration = 21, 
+		RULE_statement = 22, RULE_parExpression = 23, RULE_expressionList = 24, 
+		RULE_statementExpression = 25, RULE_expression = 26, RULE_primary = 27, 
+		RULE_arguments = 28, RULE_localVariableDeclarationStatementErro = 29;
 	public static final String[] ruleNames = {
 		"compilationUnit", "methodDeclaration", "variableDeclarators", "variableDeclarator", 
 		"variableDeclaratorId", "variableInitializer", "typeType", "primitiveType", 
-		"formalParameters", "formalParameterList", "formalParameter", "methodBody", 
-		"literal", "structDeclaration", "structVaribleDeclaration", "structVariableInitializer", 
-		"structDeclarationStatement", "block", "blockStatement", "localVariableDeclarationStatement", 
-		"localVariableDeclaration", "statement", "parExpression", "expressionList", 
-		"statementExpression", "expression", "primary", "arguments"
+		"formalParameters", "formalParameterList", "formalParameterDeclaratorId", 
+		"formalParameter", "methodBody", "literal", "structDeclaration", "structVaribleDeclaration", 
+		"structVariableInitializer", "structDeclarationStatement", "block", "blockStatement", 
+		"localVariableDeclarationStatement", "localVariableDeclaration", "statement", 
+		"parExpression", "expressionList", "statementExpression", "expression", 
+		"primary", "arguments", "localVariableDeclarationStatementErro"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'char'", "','", "'>'", "'int'", "'float'", "'struct'", "'if'", 
+		null, "','", "'>'", "'int'", "'float'", "'char'", "'struct'", "'if'", 
 		"'else'", "'while'", "'void'", "'return'", null, null, null, null, "'('", 
 		"')'", "'{'", "'}'", "'['", "']'", "';'", "'='", "'<'", "'=='", "'<='", 
 		"'>='", "'!='", "'+'", "'-'", "'*'", "'/'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, "INT", "FLOAT", "STRUCT", "IF", "ELSE", "WHILE", 
+		null, null, null, "INT", "FLOAT", "CHAR", "STRUCT", "IF", "ELSE", "WHILE", 
 		"VOID", "RETURN", "IntegerLiteral", "FloatingPointLiteral", "CharacterLiteral", 
 		"StringLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", 
 		"SEMI", "ASSIGN", "LT", "EQUAL", "LE", "GE", "NOTEQUAL", "ADD", "SUB", 
@@ -150,39 +152,39 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(61);
+			setState(65);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << INT) | (1L << FLOAT) | (1L << STRUCT) | (1L << VOID))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << CHAR) | (1L << STRUCT) | (1L << VOID))) != 0)) {
 				{
-				setState(59);
+				setState(63);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 				case 1:
 					{
-					setState(56);
+					setState(60);
 					localVariableDeclarationStatement();
 					}
 					break;
 				case 2:
 					{
-					setState(57);
+					setState(61);
 					methodDeclaration();
 					}
 					break;
 				case 3:
 					{
-					setState(58);
+					setState(62);
 					structDeclarationStatement();
 					}
 					break;
 				}
 				}
-				setState(63);
+				setState(67);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(64);
+			setState(68);
 			match(EOF);
 			}
 		}
@@ -234,56 +236,51 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(72);
 			switch (_input.LA(1)) {
-			case T__0:
 			case INT:
 			case FLOAT:
+			case CHAR:
 				{
-				setState(66);
+				setState(70);
 				typeType();
 				}
 				break;
 			case VOID:
 				{
-				setState(67);
+				setState(71);
 				match(VOID);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(70);
+			setState(74);
 			match(Identifier);
-			setState(71);
+			setState(75);
 			formalParameters();
-			setState(76);
-			_errHandler.sync(this);
+			setState(78);
 			_la = _input.LA(1);
-			while (_la==LBRACK) {
+			if (_la==LBRACK) {
 				{
-				{
-				setState(72);
+				setState(76);
 				match(LBRACK);
-				setState(73);
+				setState(77);
 				match(RBRACK);
 				}
-				}
-				setState(78);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
 			}
-			setState(81);
+
+			setState(82);
 			switch (_input.LA(1)) {
 			case LBRACE:
 				{
-				setState(79);
+				setState(80);
 				methodBody();
 				}
 				break;
 			case SEMI:
 				{
-				setState(80);
+				setState(81);
 				match(SEMI);
 				}
 				break;
@@ -332,7 +329,7 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(83);
+			setState(84);
 			variableDeclarator();
 			}
 		}
@@ -350,6 +347,10 @@ public class CMinusParser extends Parser {
 	public static class VariableDeclaratorContext extends ParserRuleContext {
 		public VariableDeclaratorIdContext variableDeclaratorId() {
 			return getRuleContext(VariableDeclaratorIdContext.class,0);
+		}
+		public List<TerminalNode> IntegerLiteral() { return getTokens(CMinusParser.IntegerLiteral); }
+		public TerminalNode IntegerLiteral(int i) {
+			return getToken(CMinusParser.IntegerLiteral, i);
 		}
 		public VariableInitializerContext variableInitializer() {
 			return getRuleContext(VariableInitializerContext.class,0);
@@ -376,23 +377,44 @@ public class CMinusParser extends Parser {
 	public final VariableDeclaratorContext variableDeclarator() throws RecognitionException {
 		VariableDeclaratorContext _localctx = new VariableDeclaratorContext(_ctx, getState());
 		enterRule(_localctx, 6, RULE_variableDeclarator);
-		int _la;
 		try {
+			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(85);
+			setState(86);
 			variableDeclaratorId();
-			setState(88);
-			_la = _input.LA(1);
-			if (_la==ASSIGN) {
+			setState(92);
+			_errHandler.sync(this);
+			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
+				if ( _alt==1 ) {
+					{
+					{
+					setState(87);
+					match(LBRACK);
+					setState(88);
+					match(IntegerLiteral);
+					setState(89);
+					match(RBRACK);
+					}
+					} 
+				}
+				setState(94);
+				_errHandler.sync(this);
+				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
+			}
+			setState(97);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			case 1:
 				{
-				setState(86);
+				setState(95);
 				match(ASSIGN);
-				setState(87);
+				setState(96);
 				variableInitializer();
 				}
+				break;
 			}
-
 			}
 		}
 		catch (RecognitionException re) {
@@ -433,7 +455,7 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(90);
+			setState(99);
 			match(Identifier);
 			}
 		}
@@ -477,7 +499,7 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92);
+			setState(101);
 			expression(0);
 			}
 		}
@@ -521,7 +543,7 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94);
+			setState(103);
 			primitiveType();
 			}
 		}
@@ -563,9 +585,9 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(96);
+			setState(105);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << INT) | (1L << FLOAT))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << CHAR))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			} else {
 				consume();
@@ -613,18 +635,18 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(98);
+			setState(107);
 			match(LPAREN);
-			setState(100);
+			setState(109);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << INT) | (1L << FLOAT))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << CHAR))) != 0)) {
 				{
-				setState(99);
+				setState(108);
 				formalParameterList();
 				}
 			}
 
-			setState(102);
+			setState(111);
 			match(RPAREN);
 			}
 		}
@@ -672,24 +694,66 @@ public class CMinusParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104);
+			setState(113);
 			formalParameter();
-			setState(109);
+			setState(118);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__1) {
+			while (_la==T__0) {
 				{
 				{
-				setState(105);
-				match(T__1);
-				setState(106);
+				setState(114);
+				match(T__0);
+				setState(115);
 				formalParameter();
 				}
 				}
-				setState(111);
+				setState(120);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class FormalParameterDeclaratorIdContext extends ParserRuleContext {
+		public TerminalNode Identifier() { return getToken(CMinusParser.Identifier, 0); }
+		public FormalParameterDeclaratorIdContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_formalParameterDeclaratorId; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMinusListener ) ((CMinusListener)listener).enterFormalParameterDeclaratorId(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMinusListener ) ((CMinusListener)listener).exitFormalParameterDeclaratorId(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMinusVisitor ) return ((CMinusVisitor<? extends T>)visitor).visitFormalParameterDeclaratorId(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final FormalParameterDeclaratorIdContext formalParameterDeclaratorId() throws RecognitionException {
+		FormalParameterDeclaratorIdContext _localctx = new FormalParameterDeclaratorIdContext(_ctx, getState());
+		enterRule(_localctx, 20, RULE_formalParameterDeclaratorId);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(121);
+			match(Identifier);
 			}
 		}
 		catch (RecognitionException re) {
@@ -707,8 +771,8 @@ public class CMinusParser extends Parser {
 		public TypeTypeContext typeType() {
 			return getRuleContext(TypeTypeContext.class,0);
 		}
-		public VariableDeclaratorIdContext variableDeclaratorId() {
-			return getRuleContext(VariableDeclaratorIdContext.class,0);
+		public FormalParameterDeclaratorIdContext formalParameterDeclaratorId() {
+			return getRuleContext(FormalParameterDeclaratorIdContext.class,0);
 		}
 		public FormalParameterContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -731,14 +795,31 @@ public class CMinusParser extends Parser {
 
 	public final FormalParameterContext formalParameter() throws RecognitionException {
 		FormalParameterContext _localctx = new FormalParameterContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_formalParameter);
+		enterRule(_localctx, 22, RULE_formalParameter);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(112);
+			setState(123);
 			typeType();
-			setState(113);
-			variableDeclaratorId();
+			setState(124);
+			formalParameterDeclaratorId();
+			setState(129);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==LBRACK) {
+				{
+				{
+				setState(125);
+				match(LBRACK);
+				setState(126);
+				match(RBRACK);
+				}
+				}
+				setState(131);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -777,11 +858,11 @@ public class CMinusParser extends Parser {
 
 	public final MethodBodyContext methodBody() throws RecognitionException {
 		MethodBodyContext _localctx = new MethodBodyContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_methodBody);
+		enterRule(_localctx, 24, RULE_methodBody);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(115);
+			setState(132);
 			block();
 			}
 		}
@@ -821,12 +902,12 @@ public class CMinusParser extends Parser {
 
 	public final LiteralContext literal() throws RecognitionException {
 		LiteralContext _localctx = new LiteralContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_literal);
+		enterRule(_localctx, 26, RULE_literal);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(117);
+			setState(134);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << CharacterLiteral))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -875,32 +956,32 @@ public class CMinusParser extends Parser {
 
 	public final StructDeclarationContext structDeclaration() throws RecognitionException {
 		StructDeclarationContext _localctx = new StructDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_structDeclaration);
+		enterRule(_localctx, 28, RULE_structDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(119);
+			setState(136);
 			match(STRUCT);
-			setState(120);
+			setState(137);
 			match(Identifier);
-			setState(121);
+			setState(138);
 			match(LBRACE);
-			setState(123); 
+			setState(140); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(122);
+				setState(139);
 				structVaribleDeclaration();
 				}
 				}
-				setState(125); 
+				setState(142); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << INT) | (1L << FLOAT))) != 0) );
-			setState(127);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << CHAR))) != 0) );
+			setState(144);
 			match(RBRACE);
 			}
 		}
@@ -944,27 +1025,27 @@ public class CMinusParser extends Parser {
 
 	public final StructVaribleDeclarationContext structVaribleDeclaration() throws RecognitionException {
 		StructVaribleDeclarationContext _localctx = new StructVaribleDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_structVaribleDeclaration);
+		enterRule(_localctx, 30, RULE_structVaribleDeclaration);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(129);
+			setState(146);
 			primitiveType();
-			setState(130);
+			setState(147);
 			match(Identifier);
-			setState(133);
+			setState(150);
 			_la = _input.LA(1);
 			if (_la==ASSIGN) {
 				{
-				setState(131);
+				setState(148);
 				match(ASSIGN);
-				setState(132);
+				setState(149);
 				structVariableInitializer();
 				}
 			}
 
-			setState(135);
+			setState(152);
 			match(SEMI);
 			}
 		}
@@ -1004,11 +1085,11 @@ public class CMinusParser extends Parser {
 
 	public final StructVariableInitializerContext structVariableInitializer() throws RecognitionException {
 		StructVariableInitializerContext _localctx = new StructVariableInitializerContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_structVariableInitializer);
+		enterRule(_localctx, 32, RULE_structVariableInitializer);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(137);
+			setState(154);
 			literal();
 			}
 		}
@@ -1048,13 +1129,13 @@ public class CMinusParser extends Parser {
 
 	public final StructDeclarationStatementContext structDeclarationStatement() throws RecognitionException {
 		StructDeclarationStatementContext _localctx = new StructDeclarationStatementContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_structDeclarationStatement);
+		enterRule(_localctx, 34, RULE_structDeclarationStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(156);
 			structDeclaration();
-			setState(140);
+			setState(157);
 			match(SEMI);
 			}
 		}
@@ -1097,28 +1178,28 @@ public class CMinusParser extends Parser {
 
 	public final BlockContext block() throws RecognitionException {
 		BlockContext _localctx = new BlockContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_block);
+		enterRule(_localctx, 36, RULE_block);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(142);
+			setState(159);
 			match(LBRACE);
-			setState(146);
+			setState(163);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << INT) | (1L << FLOAT) | (1L << STRUCT) | (1L << IF) | (1L << WHILE) | (1L << RETURN) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << CharacterLiteral) | (1L << LPAREN) | (1L << LBRACE) | (1L << SEMI) | (1L << Identifier))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << INT) | (1L << FLOAT) | (1L << CHAR) | (1L << STRUCT) | (1L << IF) | (1L << WHILE) | (1L << RETURN) | (1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << CharacterLiteral) | (1L << LPAREN) | (1L << LBRACE) | (1L << SEMI) | (1L << Identifier))) != 0)) {
 				{
 				{
-				setState(143);
+				setState(160);
 				blockStatement();
 				}
 				}
-				setState(148);
+				setState(165);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(149);
+			setState(166);
 			match(RBRACE);
 			}
 		}
@@ -1137,8 +1218,8 @@ public class CMinusParser extends Parser {
 		public LocalVariableDeclarationStatementContext localVariableDeclarationStatement() {
 			return getRuleContext(LocalVariableDeclarationStatementContext.class,0);
 		}
-		public StructDeclarationContext structDeclaration() {
-			return getRuleContext(StructDeclarationContext.class,0);
+		public StructDeclarationStatementContext structDeclarationStatement() {
+			return getRuleContext(StructDeclarationStatementContext.class,0);
 		}
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
@@ -1164,24 +1245,24 @@ public class CMinusParser extends Parser {
 
 	public final BlockStatementContext blockStatement() throws RecognitionException {
 		BlockStatementContext _localctx = new BlockStatementContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_blockStatement);
+		enterRule(_localctx, 38, RULE_blockStatement);
 		try {
-			setState(154);
+			setState(171);
 			switch (_input.LA(1)) {
-			case T__0:
 			case INT:
 			case FLOAT:
+			case CHAR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(151);
+				setState(168);
 				localVariableDeclarationStatement();
 				}
 				break;
 			case STRUCT:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(152);
-				structDeclaration();
+				setState(169);
+				structDeclarationStatement();
 				}
 				break;
 			case IF:
@@ -1196,7 +1277,7 @@ public class CMinusParser extends Parser {
 			case Identifier:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(153);
+				setState(170);
 				statement();
 				}
 				break;
@@ -1240,13 +1321,13 @@ public class CMinusParser extends Parser {
 
 	public final LocalVariableDeclarationStatementContext localVariableDeclarationStatement() throws RecognitionException {
 		LocalVariableDeclarationStatementContext _localctx = new LocalVariableDeclarationStatementContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_localVariableDeclarationStatement);
+		enterRule(_localctx, 40, RULE_localVariableDeclarationStatement);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(156);
+			setState(173);
 			localVariableDeclaration();
-			setState(157);
+			setState(174);
 			match(SEMI);
 			}
 		}
@@ -1289,13 +1370,13 @@ public class CMinusParser extends Parser {
 
 	public final LocalVariableDeclarationContext localVariableDeclaration() throws RecognitionException {
 		LocalVariableDeclarationContext _localctx = new LocalVariableDeclarationContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_localVariableDeclaration);
+		enterRule(_localctx, 42, RULE_localVariableDeclaration);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(159);
+			setState(176);
 			typeType();
-			setState(160);
+			setState(177);
 			variableDeclarators();
 			}
 		}
@@ -1350,35 +1431,35 @@ public class CMinusParser extends Parser {
 
 	public final StatementContext statement() throws RecognitionException {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_statement);
+		enterRule(_localctx, 44, RULE_statement);
 		int _la;
 		try {
-			setState(183);
+			setState(200);
 			switch (_input.LA(1)) {
 			case LBRACE:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(162);
+				setState(179);
 				block();
 				}
 				break;
 			case IF:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(163);
+				setState(180);
 				match(IF);
-				setState(164);
+				setState(181);
 				parExpression();
-				setState(165);
+				setState(182);
 				statement();
-				setState(168);
+				setState(185);
 				_errHandler.sync(this);
-				switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
+				switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 				case 1:
 					{
-					setState(166);
+					setState(183);
 					match(ELSE);
-					setState(167);
+					setState(184);
 					statement();
 					}
 					break;
@@ -1388,36 +1469,36 @@ public class CMinusParser extends Parser {
 			case WHILE:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(170);
+				setState(187);
 				match(WHILE);
-				setState(171);
+				setState(188);
 				parExpression();
-				setState(172);
+				setState(189);
 				statement();
 				}
 				break;
 			case RETURN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(174);
+				setState(191);
 				match(RETURN);
-				setState(176);
+				setState(193);
 				_la = _input.LA(1);
 				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << CharacterLiteral) | (1L << LPAREN) | (1L << Identifier))) != 0)) {
 					{
-					setState(175);
+					setState(192);
 					expression(0);
 					}
 				}
 
-				setState(178);
+				setState(195);
 				match(SEMI);
 				}
 				break;
 			case SEMI:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(179);
+				setState(196);
 				match(SEMI);
 				}
 				break;
@@ -1428,9 +1509,9 @@ public class CMinusParser extends Parser {
 			case Identifier:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(180);
+				setState(197);
 				statementExpression();
-				setState(181);
+				setState(198);
 				match(SEMI);
 				}
 				break;
@@ -1474,15 +1555,15 @@ public class CMinusParser extends Parser {
 
 	public final ParExpressionContext parExpression() throws RecognitionException {
 		ParExpressionContext _localctx = new ParExpressionContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_parExpression);
+		enterRule(_localctx, 46, RULE_parExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(185);
+			setState(202);
 			match(LPAREN);
-			setState(186);
+			setState(203);
 			expression(0);
-			setState(187);
+			setState(204);
 			match(RPAREN);
 			}
 		}
@@ -1525,26 +1606,26 @@ public class CMinusParser extends Parser {
 
 	public final ExpressionListContext expressionList() throws RecognitionException {
 		ExpressionListContext _localctx = new ExpressionListContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_expressionList);
+		enterRule(_localctx, 48, RULE_expressionList);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(189);
+			setState(206);
 			expression(0);
-			setState(194);
+			setState(211);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while (_la==T__1) {
+			while (_la==T__0) {
 				{
 				{
-				setState(190);
-				match(T__1);
-				setState(191);
+				setState(207);
+				match(T__0);
+				setState(208);
 				expression(0);
 				}
 				}
-				setState(196);
+				setState(213);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1586,11 +1667,11 @@ public class CMinusParser extends Parser {
 
 	public final StatementExpressionContext statementExpression() throws RecognitionException {
 		StatementExpressionContext _localctx = new StatementExpressionContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_statementExpression);
+		enterRule(_localctx, 50, RULE_statementExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(197);
+			setState(214);
 			expression(0);
 			}
 		}
@@ -1643,43 +1724,43 @@ public class CMinusParser extends Parser {
 		int _parentState = getState();
 		ExpressionContext _localctx = new ExpressionContext(_ctx, _parentState);
 		ExpressionContext _prevctx = _localctx;
-		int _startState = 50;
-		enterRecursionRule(_localctx, 50, RULE_expression, _p);
+		int _startState = 52;
+		enterRecursionRule(_localctx, 52, RULE_expression, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
 			{
-			setState(200);
+			setState(217);
 			primary();
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(219);
+			setState(236);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,19,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(217);
+					setState(234);
 					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
+					switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(202);
+						setState(219);
 						if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, "precpred(_ctx, 5)");
-						setState(203);
+						setState(220);
 						_la = _input.LA(1);
 						if ( !(_la==MUL || _la==DIV) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(204);
+						setState(221);
 						expression(6);
 						}
 						break;
@@ -1687,16 +1768,16 @@ public class CMinusParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(205);
+						setState(222);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(206);
+						setState(223);
 						_la = _input.LA(1);
 						if ( !(_la==ADD || _la==SUB) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(207);
+						setState(224);
 						expression(5);
 						}
 						break;
@@ -1704,16 +1785,16 @@ public class CMinusParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(208);
+						setState(225);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(209);
+						setState(226);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << LT) | (1L << LE) | (1L << GE))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << LT) | (1L << LE) | (1L << GE))) != 0)) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(210);
+						setState(227);
 						expression(4);
 						}
 						break;
@@ -1721,16 +1802,16 @@ public class CMinusParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(211);
+						setState(228);
 						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(212);
+						setState(229);
 						_la = _input.LA(1);
 						if ( !(_la==EQUAL || _la==NOTEQUAL) ) {
 						_errHandler.recoverInline(this);
 						} else {
 							consume();
 						}
-						setState(213);
+						setState(230);
 						expression(3);
 						}
 						break;
@@ -1738,20 +1819,20 @@ public class CMinusParser extends Parser {
 						{
 						_localctx = new ExpressionContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
-						setState(214);
+						setState(231);
 						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
-						setState(215);
+						setState(232);
 						match(ASSIGN);
-						setState(216);
+						setState(233);
 						expression(1);
 						}
 						break;
 					}
 					} 
 				}
-				setState(221);
+				setState(238);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,19,_ctx);
 			}
 			}
 		}
@@ -1795,18 +1876,18 @@ public class CMinusParser extends Parser {
 
 	public final PrimaryContext primary() throws RecognitionException {
 		PrimaryContext _localctx = new PrimaryContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_primary);
+		enterRule(_localctx, 54, RULE_primary);
 		try {
-			setState(228);
+			setState(245);
 			switch (_input.LA(1)) {
 			case LPAREN:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(222);
+				setState(239);
 				match(LPAREN);
-				setState(223);
+				setState(240);
 				expression(0);
-				setState(224);
+				setState(241);
 				match(RPAREN);
 				}
 				break;
@@ -1815,14 +1896,14 @@ public class CMinusParser extends Parser {
 			case CharacterLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(226);
+				setState(243);
 				literal();
 				}
 				break;
 			case Identifier:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(227);
+				setState(244);
 				match(Identifier);
 				}
 				break;
@@ -1866,24 +1947,77 @@ public class CMinusParser extends Parser {
 
 	public final ArgumentsContext arguments() throws RecognitionException {
 		ArgumentsContext _localctx = new ArgumentsContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_arguments);
+		enterRule(_localctx, 56, RULE_arguments);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(230);
+			setState(247);
 			match(LPAREN);
-			setState(232);
+			setState(249);
 			_la = _input.LA(1);
 			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << IntegerLiteral) | (1L << FloatingPointLiteral) | (1L << CharacterLiteral) | (1L << LPAREN) | (1L << Identifier))) != 0)) {
 				{
-				setState(231);
+				setState(248);
 				expressionList();
 				}
 			}
 
-			setState(234);
+			setState(251);
 			match(RPAREN);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class LocalVariableDeclarationStatementErroContext extends ParserRuleContext {
+		public LocalVariableDeclarationContext localVariableDeclaration() {
+			return getRuleContext(LocalVariableDeclarationContext.class,0);
+		}
+		public LocalVariableDeclarationStatementErroContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_localVariableDeclarationStatementErro; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof CMinusListener ) ((CMinusListener)listener).enterLocalVariableDeclarationStatementErro(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof CMinusListener ) ((CMinusListener)listener).exitLocalVariableDeclarationStatementErro(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof CMinusVisitor ) return ((CMinusVisitor<? extends T>)visitor).visitLocalVariableDeclarationStatementErro(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final LocalVariableDeclarationStatementErroContext localVariableDeclarationStatementErro() throws RecognitionException {
+		LocalVariableDeclarationStatementErroContext _localctx = new LocalVariableDeclarationStatementErroContext(_ctx, getState());
+		enterRule(_localctx, 58, RULE_localVariableDeclarationStatementErro);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(253);
+			localVariableDeclaration();
+			setState(254);
+			_la = _input.LA(1);
+			if ( _la <= 0 || (_la==SEMI) ) {
+			_errHandler.recoverInline(this);
+			} else {
+				consume();
+			}
+			System.out.println("Faltou ponto e virgula");
 			}
 		}
 		catch (RecognitionException re) {
@@ -1899,7 +2033,7 @@ public class CMinusParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 25:
+		case 26:
 			return expression_sempred((ExpressionContext)_localctx, predIndex);
 		}
 		return true;
@@ -1921,83 +2055,90 @@ public class CMinusParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3%\u00ef\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3%\u0104\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\3\2\3\2\3\2\7\2>\n\2\f\2\16\2"+
-		"A\13\2\3\2\3\2\3\3\3\3\5\3G\n\3\3\3\3\3\3\3\3\3\7\3M\n\3\f\3\16\3P\13"+
-		"\3\3\3\3\3\5\3T\n\3\3\4\3\4\3\5\3\5\3\5\5\5[\n\5\3\6\3\6\3\7\3\7\3\b\3"+
-		"\b\3\t\3\t\3\n\3\n\5\ng\n\n\3\n\3\n\3\13\3\13\3\13\7\13n\n\13\f\13\16"+
-		"\13q\13\13\3\f\3\f\3\f\3\r\3\r\3\16\3\16\3\17\3\17\3\17\3\17\6\17~\n\17"+
-		"\r\17\16\17\177\3\17\3\17\3\20\3\20\3\20\3\20\5\20\u0088\n\20\3\20\3\20"+
-		"\3\21\3\21\3\22\3\22\3\22\3\23\3\23\7\23\u0093\n\23\f\23\16\23\u0096\13"+
-		"\23\3\23\3\23\3\24\3\24\3\24\5\24\u009d\n\24\3\25\3\25\3\25\3\26\3\26"+
-		"\3\26\3\27\3\27\3\27\3\27\3\27\3\27\5\27\u00ab\n\27\3\27\3\27\3\27\3\27"+
-		"\3\27\3\27\5\27\u00b3\n\27\3\27\3\27\3\27\3\27\3\27\5\27\u00ba\n\27\3"+
-		"\30\3\30\3\30\3\30\3\31\3\31\3\31\7\31\u00c3\n\31\f\31\16\31\u00c6\13"+
-		"\31\3\32\3\32\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3"+
-		"\33\3\33\3\33\3\33\3\33\3\33\3\33\7\33\u00dc\n\33\f\33\16\33\u00df\13"+
-		"\33\3\34\3\34\3\34\3\34\3\34\3\34\5\34\u00e7\n\34\3\35\3\35\5\35\u00eb"+
-		"\n\35\3\35\3\35\3\35\2\3\64\36\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36"+
-		" \"$&(*,.\60\62\64\668\2\b\4\2\3\3\6\7\3\2\16\20\3\2!\"\3\2\37 \5\2\5"+
-		"\5\32\32\34\35\4\2\33\33\36\36\u00f0\2?\3\2\2\2\4F\3\2\2\2\6U\3\2\2\2"+
-		"\bW\3\2\2\2\n\\\3\2\2\2\f^\3\2\2\2\16`\3\2\2\2\20b\3\2\2\2\22d\3\2\2\2"+
-		"\24j\3\2\2\2\26r\3\2\2\2\30u\3\2\2\2\32w\3\2\2\2\34y\3\2\2\2\36\u0083"+
-		"\3\2\2\2 \u008b\3\2\2\2\"\u008d\3\2\2\2$\u0090\3\2\2\2&\u009c\3\2\2\2"+
-		"(\u009e\3\2\2\2*\u00a1\3\2\2\2,\u00b9\3\2\2\2.\u00bb\3\2\2\2\60\u00bf"+
-		"\3\2\2\2\62\u00c7\3\2\2\2\64\u00c9\3\2\2\2\66\u00e6\3\2\2\28\u00e8\3\2"+
-		"\2\2:>\5(\25\2;>\5\4\3\2<>\5\"\22\2=:\3\2\2\2=;\3\2\2\2=<\3\2\2\2>A\3"+
-		"\2\2\2?=\3\2\2\2?@\3\2\2\2@B\3\2\2\2A?\3\2\2\2BC\7\2\2\3C\3\3\2\2\2DG"+
-		"\5\16\b\2EG\7\f\2\2FD\3\2\2\2FE\3\2\2\2GH\3\2\2\2HI\7#\2\2IN\5\22\n\2"+
-		"JK\7\26\2\2KM\7\27\2\2LJ\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO\3\2\2\2OS\3\2\2"+
-		"\2PN\3\2\2\2QT\5\30\r\2RT\7\30\2\2SQ\3\2\2\2SR\3\2\2\2T\5\3\2\2\2UV\5"+
-		"\b\5\2V\7\3\2\2\2WZ\5\n\6\2XY\7\31\2\2Y[\5\f\7\2ZX\3\2\2\2Z[\3\2\2\2["+
-		"\t\3\2\2\2\\]\7#\2\2]\13\3\2\2\2^_\5\64\33\2_\r\3\2\2\2`a\5\20\t\2a\17"+
-		"\3\2\2\2bc\t\2\2\2c\21\3\2\2\2df\7\22\2\2eg\5\24\13\2fe\3\2\2\2fg\3\2"+
-		"\2\2gh\3\2\2\2hi\7\23\2\2i\23\3\2\2\2jo\5\26\f\2kl\7\4\2\2ln\5\26\f\2"+
-		"mk\3\2\2\2nq\3\2\2\2om\3\2\2\2op\3\2\2\2p\25\3\2\2\2qo\3\2\2\2rs\5\16"+
-		"\b\2st\5\n\6\2t\27\3\2\2\2uv\5$\23\2v\31\3\2\2\2wx\t\3\2\2x\33\3\2\2\2"+
-		"yz\7\b\2\2z{\7#\2\2{}\7\24\2\2|~\5\36\20\2}|\3\2\2\2~\177\3\2\2\2\177"+
-		"}\3\2\2\2\177\u0080\3\2\2\2\u0080\u0081\3\2\2\2\u0081\u0082\7\25\2\2\u0082"+
-		"\35\3\2\2\2\u0083\u0084\5\20\t\2\u0084\u0087\7#\2\2\u0085\u0086\7\31\2"+
-		"\2\u0086\u0088\5 \21\2\u0087\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\u0089"+
-		"\3\2\2\2\u0089\u008a\7\30\2\2\u008a\37\3\2\2\2\u008b\u008c\5\32\16\2\u008c"+
-		"!\3\2\2\2\u008d\u008e\5\34\17\2\u008e\u008f\7\30\2\2\u008f#\3\2\2\2\u0090"+
-		"\u0094\7\24\2\2\u0091\u0093\5&\24\2\u0092\u0091\3\2\2\2\u0093\u0096\3"+
-		"\2\2\2\u0094\u0092\3\2\2\2\u0094\u0095\3\2\2\2\u0095\u0097\3\2\2\2\u0096"+
-		"\u0094\3\2\2\2\u0097\u0098\7\25\2\2\u0098%\3\2\2\2\u0099\u009d\5(\25\2"+
-		"\u009a\u009d\5\34\17\2\u009b\u009d\5,\27\2\u009c\u0099\3\2\2\2\u009c\u009a"+
-		"\3\2\2\2\u009c\u009b\3\2\2\2\u009d\'\3\2\2\2\u009e\u009f\5*\26\2\u009f"+
-		"\u00a0\7\30\2\2\u00a0)\3\2\2\2\u00a1\u00a2\5\16\b\2\u00a2\u00a3\5\6\4"+
-		"\2\u00a3+\3\2\2\2\u00a4\u00ba\5$\23\2\u00a5\u00a6\7\t\2\2\u00a6\u00a7"+
-		"\5.\30\2\u00a7\u00aa\5,\27\2\u00a8\u00a9\7\n\2\2\u00a9\u00ab\5,\27\2\u00aa"+
-		"\u00a8\3\2\2\2\u00aa\u00ab\3\2\2\2\u00ab\u00ba\3\2\2\2\u00ac\u00ad\7\13"+
-		"\2\2\u00ad\u00ae\5.\30\2\u00ae\u00af\5,\27\2\u00af\u00ba\3\2\2\2\u00b0"+
-		"\u00b2\7\r\2\2\u00b1\u00b3\5\64\33\2\u00b2\u00b1\3\2\2\2\u00b2\u00b3\3"+
-		"\2\2\2\u00b3\u00b4\3\2\2\2\u00b4\u00ba\7\30\2\2\u00b5\u00ba\7\30\2\2\u00b6"+
-		"\u00b7\5\62\32\2\u00b7\u00b8\7\30\2\2\u00b8\u00ba\3\2\2\2\u00b9\u00a4"+
-		"\3\2\2\2\u00b9\u00a5\3\2\2\2\u00b9\u00ac\3\2\2\2\u00b9\u00b0\3\2\2\2\u00b9"+
-		"\u00b5\3\2\2\2\u00b9\u00b6\3\2\2\2\u00ba-\3\2\2\2\u00bb\u00bc\7\22\2\2"+
-		"\u00bc\u00bd\5\64\33\2\u00bd\u00be\7\23\2\2\u00be/\3\2\2\2\u00bf\u00c4"+
-		"\5\64\33\2\u00c0\u00c1\7\4\2\2\u00c1\u00c3\5\64\33\2\u00c2\u00c0\3\2\2"+
-		"\2\u00c3\u00c6\3\2\2\2\u00c4\u00c2\3\2\2\2\u00c4\u00c5\3\2\2\2\u00c5\61"+
-		"\3\2\2\2\u00c6\u00c4\3\2\2\2\u00c7\u00c8\5\64\33\2\u00c8\63\3\2\2\2\u00c9"+
-		"\u00ca\b\33\1\2\u00ca\u00cb\5\66\34\2\u00cb\u00dd\3\2\2\2\u00cc\u00cd"+
-		"\f\7\2\2\u00cd\u00ce\t\4\2\2\u00ce\u00dc\5\64\33\b\u00cf\u00d0\f\6\2\2"+
-		"\u00d0\u00d1\t\5\2\2\u00d1\u00dc\5\64\33\7\u00d2\u00d3\f\5\2\2\u00d3\u00d4"+
-		"\t\6\2\2\u00d4\u00dc\5\64\33\6\u00d5\u00d6\f\4\2\2\u00d6\u00d7\t\7\2\2"+
-		"\u00d7\u00dc\5\64\33\5\u00d8\u00d9\f\3\2\2\u00d9\u00da\7\31\2\2\u00da"+
-		"\u00dc\5\64\33\3\u00db\u00cc\3\2\2\2\u00db\u00cf\3\2\2\2\u00db\u00d2\3"+
-		"\2\2\2\u00db\u00d5\3\2\2\2\u00db\u00d8\3\2\2\2\u00dc\u00df\3\2\2\2\u00dd"+
-		"\u00db\3\2\2\2\u00dd\u00de\3\2\2\2\u00de\65\3\2\2\2\u00df\u00dd\3\2\2"+
-		"\2\u00e0\u00e1\7\22\2\2\u00e1\u00e2\5\64\33\2\u00e2\u00e3\7\23\2\2\u00e3"+
-		"\u00e7\3\2\2\2\u00e4\u00e7\5\32\16\2\u00e5\u00e7\7#\2\2\u00e6\u00e0\3"+
-		"\2\2\2\u00e6\u00e4\3\2\2\2\u00e6\u00e5\3\2\2\2\u00e7\67\3\2\2\2\u00e8"+
-		"\u00ea\7\22\2\2\u00e9\u00eb\5\60\31\2\u00ea\u00e9\3\2\2\2\u00ea\u00eb"+
-		"\3\2\2\2\u00eb\u00ec\3\2\2\2\u00ec\u00ed\7\23\2\2\u00ed9\3\2\2\2\26=?"+
-		"FNSZfo\177\u0087\u0094\u009c\u00aa\u00b2\u00b9\u00c4\u00db\u00dd\u00e6"+
-		"\u00ea";
+		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\3\2\3\2\3"+
+		"\2\7\2B\n\2\f\2\16\2E\13\2\3\2\3\2\3\3\3\3\5\3K\n\3\3\3\3\3\3\3\3\3\5"+
+		"\3Q\n\3\3\3\3\3\5\3U\n\3\3\4\3\4\3\5\3\5\3\5\3\5\7\5]\n\5\f\5\16\5`\13"+
+		"\5\3\5\3\5\5\5d\n\5\3\6\3\6\3\7\3\7\3\b\3\b\3\t\3\t\3\n\3\n\5\np\n\n\3"+
+		"\n\3\n\3\13\3\13\3\13\7\13w\n\13\f\13\16\13z\13\13\3\f\3\f\3\r\3\r\3\r"+
+		"\3\r\7\r\u0082\n\r\f\r\16\r\u0085\13\r\3\16\3\16\3\17\3\17\3\20\3\20\3"+
+		"\20\3\20\6\20\u008f\n\20\r\20\16\20\u0090\3\20\3\20\3\21\3\21\3\21\3\21"+
+		"\5\21\u0099\n\21\3\21\3\21\3\22\3\22\3\23\3\23\3\23\3\24\3\24\7\24\u00a4"+
+		"\n\24\f\24\16\24\u00a7\13\24\3\24\3\24\3\25\3\25\3\25\5\25\u00ae\n\25"+
+		"\3\26\3\26\3\26\3\27\3\27\3\27\3\30\3\30\3\30\3\30\3\30\3\30\5\30\u00bc"+
+		"\n\30\3\30\3\30\3\30\3\30\3\30\3\30\5\30\u00c4\n\30\3\30\3\30\3\30\3\30"+
+		"\3\30\5\30\u00cb\n\30\3\31\3\31\3\31\3\31\3\32\3\32\3\32\7\32\u00d4\n"+
+		"\32\f\32\16\32\u00d7\13\32\3\33\3\33\3\34\3\34\3\34\3\34\3\34\3\34\3\34"+
+		"\3\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\3\34\7\34\u00ed\n\34"+
+		"\f\34\16\34\u00f0\13\34\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u00f8\n\35"+
+		"\3\36\3\36\5\36\u00fc\n\36\3\36\3\36\3\37\3\37\3\37\3\37\3\37\2\3\66 "+
+		"\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\64\668:<\2\t\3"+
+		"\2\5\7\3\2\16\20\3\2!\"\3\2\37 \5\2\4\4\32\32\34\35\4\2\33\33\36\36\3"+
+		"\2\30\30\u0105\2C\3\2\2\2\4J\3\2\2\2\6V\3\2\2\2\bX\3\2\2\2\ne\3\2\2\2"+
+		"\fg\3\2\2\2\16i\3\2\2\2\20k\3\2\2\2\22m\3\2\2\2\24s\3\2\2\2\26{\3\2\2"+
+		"\2\30}\3\2\2\2\32\u0086\3\2\2\2\34\u0088\3\2\2\2\36\u008a\3\2\2\2 \u0094"+
+		"\3\2\2\2\"\u009c\3\2\2\2$\u009e\3\2\2\2&\u00a1\3\2\2\2(\u00ad\3\2\2\2"+
+		"*\u00af\3\2\2\2,\u00b2\3\2\2\2.\u00ca\3\2\2\2\60\u00cc\3\2\2\2\62\u00d0"+
+		"\3\2\2\2\64\u00d8\3\2\2\2\66\u00da\3\2\2\28\u00f7\3\2\2\2:\u00f9\3\2\2"+
+		"\2<\u00ff\3\2\2\2>B\5*\26\2?B\5\4\3\2@B\5$\23\2A>\3\2\2\2A?\3\2\2\2A@"+
+		"\3\2\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2\2\2DF\3\2\2\2EC\3\2\2\2FG\7\2\2\3G"+
+		"\3\3\2\2\2HK\5\16\b\2IK\7\f\2\2JH\3\2\2\2JI\3\2\2\2KL\3\2\2\2LM\7#\2\2"+
+		"MP\5\22\n\2NO\7\26\2\2OQ\7\27\2\2PN\3\2\2\2PQ\3\2\2\2QT\3\2\2\2RU\5\32"+
+		"\16\2SU\7\30\2\2TR\3\2\2\2TS\3\2\2\2U\5\3\2\2\2VW\5\b\5\2W\7\3\2\2\2X"+
+		"^\5\n\6\2YZ\7\26\2\2Z[\7\16\2\2[]\7\27\2\2\\Y\3\2\2\2]`\3\2\2\2^\\\3\2"+
+		"\2\2^_\3\2\2\2_c\3\2\2\2`^\3\2\2\2ab\7\31\2\2bd\5\f\7\2ca\3\2\2\2cd\3"+
+		"\2\2\2d\t\3\2\2\2ef\7#\2\2f\13\3\2\2\2gh\5\66\34\2h\r\3\2\2\2ij\5\20\t"+
+		"\2j\17\3\2\2\2kl\t\2\2\2l\21\3\2\2\2mo\7\22\2\2np\5\24\13\2on\3\2\2\2"+
+		"op\3\2\2\2pq\3\2\2\2qr\7\23\2\2r\23\3\2\2\2sx\5\30\r\2tu\7\3\2\2uw\5\30"+
+		"\r\2vt\3\2\2\2wz\3\2\2\2xv\3\2\2\2xy\3\2\2\2y\25\3\2\2\2zx\3\2\2\2{|\7"+
+		"#\2\2|\27\3\2\2\2}~\5\16\b\2~\u0083\5\26\f\2\177\u0080\7\26\2\2\u0080"+
+		"\u0082\7\27\2\2\u0081\177\3\2\2\2\u0082\u0085\3\2\2\2\u0083\u0081\3\2"+
+		"\2\2\u0083\u0084\3\2\2\2\u0084\31\3\2\2\2\u0085\u0083\3\2\2\2\u0086\u0087"+
+		"\5&\24\2\u0087\33\3\2\2\2\u0088\u0089\t\3\2\2\u0089\35\3\2\2\2\u008a\u008b"+
+		"\7\b\2\2\u008b\u008c\7#\2\2\u008c\u008e\7\24\2\2\u008d\u008f\5 \21\2\u008e"+
+		"\u008d\3\2\2\2\u008f\u0090\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2"+
+		"\2\2\u0091\u0092\3\2\2\2\u0092\u0093\7\25\2\2\u0093\37\3\2\2\2\u0094\u0095"+
+		"\5\20\t\2\u0095\u0098\7#\2\2\u0096\u0097\7\31\2\2\u0097\u0099\5\"\22\2"+
+		"\u0098\u0096\3\2\2\2\u0098\u0099\3\2\2\2\u0099\u009a\3\2\2\2\u009a\u009b"+
+		"\7\30\2\2\u009b!\3\2\2\2\u009c\u009d\5\34\17\2\u009d#\3\2\2\2\u009e\u009f"+
+		"\5\36\20\2\u009f\u00a0\7\30\2\2\u00a0%\3\2\2\2\u00a1\u00a5\7\24\2\2\u00a2"+
+		"\u00a4\5(\25\2\u00a3\u00a2\3\2\2\2\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2"+
+		"\2\2\u00a5\u00a6\3\2\2\2\u00a6\u00a8\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8"+
+		"\u00a9\7\25\2\2\u00a9\'\3\2\2\2\u00aa\u00ae\5*\26\2\u00ab\u00ae\5$\23"+
+		"\2\u00ac\u00ae\5.\30\2\u00ad\u00aa\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ad\u00ac"+
+		"\3\2\2\2\u00ae)\3\2\2\2\u00af\u00b0\5,\27\2\u00b0\u00b1\7\30\2\2\u00b1"+
+		"+\3\2\2\2\u00b2\u00b3\5\16\b\2\u00b3\u00b4\5\6\4\2\u00b4-\3\2\2\2\u00b5"+
+		"\u00cb\5&\24\2\u00b6\u00b7\7\t\2\2\u00b7\u00b8\5\60\31\2\u00b8\u00bb\5"+
+		".\30\2\u00b9\u00ba\7\n\2\2\u00ba\u00bc\5.\30\2\u00bb\u00b9\3\2\2\2\u00bb"+
+		"\u00bc\3\2\2\2\u00bc\u00cb\3\2\2\2\u00bd\u00be\7\13\2\2\u00be\u00bf\5"+
+		"\60\31\2\u00bf\u00c0\5.\30\2\u00c0\u00cb\3\2\2\2\u00c1\u00c3\7\r\2\2\u00c2"+
+		"\u00c4\5\66\34\2\u00c3\u00c2\3\2\2\2\u00c3\u00c4\3\2\2\2\u00c4\u00c5\3"+
+		"\2\2\2\u00c5\u00cb\7\30\2\2\u00c6\u00cb\7\30\2\2\u00c7\u00c8\5\64\33\2"+
+		"\u00c8\u00c9\7\30\2\2\u00c9\u00cb\3\2\2\2\u00ca\u00b5\3\2\2\2\u00ca\u00b6"+
+		"\3\2\2\2\u00ca\u00bd\3\2\2\2\u00ca\u00c1\3\2\2\2\u00ca\u00c6\3\2\2\2\u00ca"+
+		"\u00c7\3\2\2\2\u00cb/\3\2\2\2\u00cc\u00cd\7\22\2\2\u00cd\u00ce\5\66\34"+
+		"\2\u00ce\u00cf\7\23\2\2\u00cf\61\3\2\2\2\u00d0\u00d5\5\66\34\2\u00d1\u00d2"+
+		"\7\3\2\2\u00d2\u00d4\5\66\34\2\u00d3\u00d1\3\2\2\2\u00d4\u00d7\3\2\2\2"+
+		"\u00d5\u00d3\3\2\2\2\u00d5\u00d6\3\2\2\2\u00d6\63\3\2\2\2\u00d7\u00d5"+
+		"\3\2\2\2\u00d8\u00d9\5\66\34\2\u00d9\65\3\2\2\2\u00da\u00db\b\34\1\2\u00db"+
+		"\u00dc\58\35\2\u00dc\u00ee\3\2\2\2\u00dd\u00de\f\7\2\2\u00de\u00df\t\4"+
+		"\2\2\u00df\u00ed\5\66\34\b\u00e0\u00e1\f\6\2\2\u00e1\u00e2\t\5\2\2\u00e2"+
+		"\u00ed\5\66\34\7\u00e3\u00e4\f\5\2\2\u00e4\u00e5\t\6\2\2\u00e5\u00ed\5"+
+		"\66\34\6\u00e6\u00e7\f\4\2\2\u00e7\u00e8\t\7\2\2\u00e8\u00ed\5\66\34\5"+
+		"\u00e9\u00ea\f\3\2\2\u00ea\u00eb\7\31\2\2\u00eb\u00ed\5\66\34\3\u00ec"+
+		"\u00dd\3\2\2\2\u00ec\u00e0\3\2\2\2\u00ec\u00e3\3\2\2\2\u00ec\u00e6\3\2"+
+		"\2\2\u00ec\u00e9\3\2\2\2\u00ed\u00f0\3\2\2\2\u00ee\u00ec\3\2\2\2\u00ee"+
+		"\u00ef\3\2\2\2\u00ef\67\3\2\2\2\u00f0\u00ee\3\2\2\2\u00f1\u00f2\7\22\2"+
+		"\2\u00f2\u00f3\5\66\34\2\u00f3\u00f4\7\23\2\2\u00f4\u00f8\3\2\2\2\u00f5"+
+		"\u00f8\5\34\17\2\u00f6\u00f8\7#\2\2\u00f7\u00f1\3\2\2\2\u00f7\u00f5\3"+
+		"\2\2\2\u00f7\u00f6\3\2\2\2\u00f89\3\2\2\2\u00f9\u00fb\7\22\2\2\u00fa\u00fc"+
+		"\5\62\32\2\u00fb\u00fa\3\2\2\2\u00fb\u00fc\3\2\2\2\u00fc\u00fd\3\2\2\2"+
+		"\u00fd\u00fe\7\23\2\2\u00fe;\3\2\2\2\u00ff\u0100\5,\27\2\u0100\u0101\n"+
+		"\b\2\2\u0101\u0102\b\37\1\2\u0102=\3\2\2\2\30ACJPT^cox\u0083\u0090\u0098"+
+		"\u00a5\u00ad\u00bb\u00c3\u00ca\u00d5\u00ec\u00ee\u00f7\u00fb";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

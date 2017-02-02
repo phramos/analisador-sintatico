@@ -107,6 +107,16 @@ public interface CMinusListener extends ParseTreeListener {
 	 */
 	void exitFormalParameterList(CMinusParser.FormalParameterListContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CMinusParser#formalParameterDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void enterFormalParameterDeclaratorId(CMinusParser.FormalParameterDeclaratorIdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMinusParser#formalParameterDeclaratorId}.
+	 * @param ctx the parse tree
+	 */
+	void exitFormalParameterDeclaratorId(CMinusParser.FormalParameterDeclaratorIdContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CMinusParser#formalParameter}.
 	 * @param ctx the parse tree
 	 */
@@ -286,4 +296,14 @@ public interface CMinusListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArguments(CMinusParser.ArgumentsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link CMinusParser#localVariableDeclarationStatementErro}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalVariableDeclarationStatementErro(CMinusParser.LocalVariableDeclarationStatementErroContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CMinusParser#localVariableDeclarationStatementErro}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalVariableDeclarationStatementErro(CMinusParser.LocalVariableDeclarationStatementErroContext ctx);
 }

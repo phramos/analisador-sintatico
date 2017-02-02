@@ -63,7 +63,7 @@ public class LexerOnSteroids {
             }else {
                 //Separa os Tokens identificadores para pode criar uma referência para a tabela
                 //de símbolos
-                if (v.getSymbolicName(t.getType()).equals("IDENT")){
+                if (v.getSymbolicName(t.getType()).equals("Identifier")){
 
                     //Verifica a existencia do lexema na tabela de simbolos
                     Integer entrada = findSimboloPorLexema(t.getText());

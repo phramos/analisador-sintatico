@@ -6,17 +6,17 @@ struct fauno{
 
 int variavelglobal;
 
-int main(char args) {
+int main(char args[]) {
     float a = 666;
     float b;
-    float c = 10.0E56;
-
+    float c[1] = 10.0E56;
+    a = 666;
 
     while (a != b) {
         if (a == b) {
-            a = b - 1;
+            a = 1 + 1;
         } else {
-            b = a + 1;
+            b = 2 + 1;
         }
     }
 

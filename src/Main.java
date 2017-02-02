@@ -16,9 +16,17 @@ public class Main {
     public static void main (String... args) throws IOException {
 
         String fileName = "arquivos/teste_correto.c";
-//        String fileName = "arquivos/teste_errado_colchete_while.c";
-//        String fileName = "arquivos/teste_errado_expressao_if.c";
+//        String fileName = "arquivos/teste_errado.c";
+//        String fileName = "arquivos/teste_errado_colchete_main.c";
+//        String fileName = "arquivos/teste_errado_parentese_if.c";
 //        String fileName = "arquivos/teste_errado_ponto_e_virgula.c";
+//        String fileName = "arquivos/teste_errado_tipo_sem_identificador1.c";
+//        String fileName = "arquivos/teste_errado_tipo_sem_identificador2.c";
+//        String fileName = "arquivos/teste_errado_identificador_identificador.c";
+//        String fileName = "arquivos/teste_errado_argumentos1.c";
+//        String fileName = "arquivos/teste_errado_argumentos2.c";
+//        String fileName = "arquivos/teste_errado_struct1.c";
+//        String fileName = "arquivos/teste_errado_struct2.c";
 
         File file = new File(fileName);
 
@@ -28,14 +36,20 @@ public class Main {
 
         ANTLRInputStream input = new ANTLRInputStream(fis);
 
-//        LexerOnSteroids les = new LexerOnSteroids(input);
+
+//        CMinusLexer lexer = new CMinusLexer(input);
+
+//       LexerOnSteroids les = new LexerOnSteroids(lexer);
+
+//        les.print();
+
 
         CMinusLexer scanner = new CMinusLexer(input);
 
         CommonTokenStream allTokensGenerated = new CommonTokenStream(scanner);
 
         CMinusParser parser = new CMinusParser(allTokensGenerated);
-
+//
         CMinusParser.CompilationUnitContext compilationUnitContext = parser.compilationUnit();
 
 //        ParseTreeWalker treeWalker = new ParseTreeWalker();

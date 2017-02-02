@@ -16,7 +16,7 @@ public class CMinusLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, INT=4, FLOAT=5, STRUCT=6, IF=7, ELSE=8, WHILE=9, 
+		T__0=1, T__1=2, INT=3, FLOAT=4, CHAR=5, STRUCT=6, IF=7, ELSE=8, WHILE=9, 
 		VOID=10, RETURN=11, IntegerLiteral=12, FloatingPointLiteral=13, CharacterLiteral=14, 
 		StringLiteral=15, LPAREN=16, RPAREN=17, LBRACE=18, RBRACE=19, LBRACK=20, 
 		RBRACK=21, SEMI=22, ASSIGN=23, LT=24, EQUAL=25, LE=26, GE=27, NOTEQUAL=28, 
@@ -26,7 +26,7 @@ public class CMinusLexer extends Lexer {
 	};
 
 	public static final String[] ruleNames = {
-		"T__0", "T__1", "T__2", "INT", "FLOAT", "STRUCT", "IF", "ELSE", "WHILE", 
+		"T__0", "T__1", "INT", "FLOAT", "CHAR", "STRUCT", "IF", "ELSE", "WHILE", 
 		"VOID", "RETURN", "IntegerLiteral", "DecimalIntegerLiteral", "DecimalNumeral", 
 		"Digits", "Digit", "NonZeroDigit", "FloatingPointLiteral", "DecimalFloatingPointLiteral", 
 		"ExponentPart", "ExponentIndicator", "SignedInteger", "Sign", "CharacterLiteral", 
@@ -37,13 +37,13 @@ public class CMinusLexer extends Lexer {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'char'", "','", "'>'", "'int'", "'float'", "'struct'", "'if'", 
+		null, "','", "'>'", "'int'", "'float'", "'char'", "'struct'", "'if'", 
 		"'else'", "'while'", "'void'", "'return'", null, null, null, null, "'('", 
 		"')'", "'{'", "'}'", "'['", "']'", "';'", "'='", "'<'", "'=='", "'<='", 
 		"'>='", "'!='", "'+'", "'-'", "'*'", "'/'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, "INT", "FLOAT", "STRUCT", "IF", "ELSE", "WHILE", 
+		null, null, null, "INT", "FLOAT", "CHAR", "STRUCT", "IF", "ELSE", "WHILE", 
 		"VOID", "RETURN", "IntegerLiteral", "FloatingPointLiteral", "CharacterLiteral", 
 		"StringLiteral", "LPAREN", "RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", 
 		"SEMI", "ASSIGN", "LT", "EQUAL", "LE", "GE", "NOTEQUAL", "ADD", "SUB", 
@@ -110,8 +110,8 @@ public class CMinusLexer extends Lexer {
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
 		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
 		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
-		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\3\2\3\2\3\2\3\2\3"+
-		"\2\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7"+
+		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\3\2\3\2\3\3\3\3\3"+
+		"\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7"+
 		"\3\7\3\7\3\7\3\7\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3"+
 		"\n\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\f\3\f\3\f\3\r\3\r\3\16\6"+
 		"\16\u009d\n\16\r\16\16\16\u009e\3\17\3\17\5\17\u00a3\n\17\3\20\6\20\u00a6"+
@@ -134,7 +134,7 @@ public class CMinusLexer extends Lexer {
 		"\2\2\2;\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2\2C\3\2\2\2\2E\3\2\2\2"+
 		"\2G\3\2\2\2\2I\3\2\2\2\2K\3\2\2\2\2M\3\2\2\2\2O\3\2\2\2\2Q\3\2\2\2\2S"+
 		"\3\2\2\2\2U\3\2\2\2\2W\3\2\2\2\2Y\3\2\2\2\2[\3\2\2\2\2]\3\2\2\2\2a\3\2"+
-		"\2\2\2c\3\2\2\2\3e\3\2\2\2\5j\3\2\2\2\7l\3\2\2\2\tn\3\2\2\2\13r\3\2\2"+
+		"\2\2\2c\3\2\2\2\3e\3\2\2\2\5g\3\2\2\2\7i\3\2\2\2\tm\3\2\2\2\13s\3\2\2"+
 		"\2\rx\3\2\2\2\17\177\3\2\2\2\21\u0082\3\2\2\2\23\u0087\3\2\2\2\25\u008d"+
 		"\3\2\2\2\27\u0092\3\2\2\2\31\u0099\3\2\2\2\33\u009c\3\2\2\2\35\u00a2\3"+
 		"\2\2\2\37\u00a5\3\2\2\2!\u00ab\3\2\2\2#\u00ad\3\2\2\2%\u00af\3\2\2\2\'"+
@@ -144,10 +144,10 @@ public class CMinusLexer extends Lexer {
 		"\3\2\2\2C\u00e6\3\2\2\2E\u00e8\3\2\2\2G\u00ea\3\2\2\2I\u00ec\3\2\2\2K"+
 		"\u00ee\3\2\2\2M\u00f0\3\2\2\2O\u00f3\3\2\2\2Q\u00f6\3\2\2\2S\u00f9\3\2"+
 		"\2\2U\u00fc\3\2\2\2W\u00fe\3\2\2\2Y\u0100\3\2\2\2[\u0102\3\2\2\2]\u0104"+
-		"\3\2\2\2_\u010c\3\2\2\2a\u010f\3\2\2\2c\u0115\3\2\2\2ef\7e\2\2fg\7j\2"+
-		"\2gh\7c\2\2hi\7t\2\2i\4\3\2\2\2jk\7.\2\2k\6\3\2\2\2lm\7@\2\2m\b\3\2\2"+
-		"\2no\7k\2\2op\7p\2\2pq\7v\2\2q\n\3\2\2\2rs\7h\2\2st\7n\2\2tu\7q\2\2uv"+
-		"\7c\2\2vw\7v\2\2w\f\3\2\2\2xy\7u\2\2yz\7v\2\2z{\7t\2\2{|\7w\2\2|}\7e\2"+
+		"\3\2\2\2_\u010c\3\2\2\2a\u010f\3\2\2\2c\u0115\3\2\2\2ef\7.\2\2f\4\3\2"+
+		"\2\2gh\7@\2\2h\6\3\2\2\2ij\7k\2\2jk\7p\2\2kl\7v\2\2l\b\3\2\2\2mn\7h\2"+
+		"\2no\7n\2\2op\7q\2\2pq\7c\2\2qr\7v\2\2r\n\3\2\2\2st\7e\2\2tu\7j\2\2uv"+
+		"\7c\2\2vw\7t\2\2w\f\3\2\2\2xy\7u\2\2yz\7v\2\2z{\7t\2\2{|\7w\2\2|}\7e\2"+
 		"\2}~\7v\2\2~\16\3\2\2\2\177\u0080\7k\2\2\u0080\u0081\7h\2\2\u0081\20\3"+
 		"\2\2\2\u0082\u0083\7g\2\2\u0083\u0084\7n\2\2\u0084\u0085\7u\2\2\u0085"+
 		"\u0086\7g\2\2\u0086\22\3\2\2\2\u0087\u0088\7y\2\2\u0088\u0089\7j\2\2\u0089"+

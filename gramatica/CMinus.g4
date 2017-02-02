@@ -2,75 +2,82 @@ grammar  CMinus;
 
 //TODO: Tirar minusculo de identifier
 
-// starting point for parsing a java file
+// Unidade de compilacao usada com ponto de entrada do parser
 compilationUnit
     :   (localVariableDeclarationStatement | methodDeclaration | structDeclarationStatement)* EOF
     ;
 
-/* We use rule this even for void methods which cannot have [] after parameters.
-   This simplifies grammar and we can consider void to be a type, which
-   renders the [] matching as a context-sensitive issue or a semantic check
-   for invalid return type after parsing.
- */
- //TODO: verificar | ; )
+//Declaracao de metodo. Pode ser um metodo que retorna um tipo ou um void
 methodDeclaration
-    :   (typeType|'void') Identifier formalParameters ('[' ']')*
+    :   (typeType|'void') Identifier formalParameters ('[' ']')?
         (   methodBody |   ';')
     ;
 
+//Declarador de variavel. eg.: int a = 666;
 variableDeclarators
     :   variableDeclarator
     ;
 
+//Uma um identificador, contentado ou nao uma quantidade de [], podendo conter ou nao uma inicializacao
 variableDeclarator
-    :   variableDeclaratorId ('=' variableInitializer)?
+    :   variableDeclaratorId ('['IntegerLiteral']')* ('=' variableInitializer)?
     ;
 
+//Identificador
 variableDeclaratorId
     :   Identifier
     ;
 
-//TODO: Verificar necessidade
+//inicializador de variavel eh uma expressao
 variableInitializer
     :   expression
     ;
 
+//tipo eh um tipo primitivo
 typeType
     :   primitiveType
     ;
 
-//TODO:fazer char functionar la embaixo
-//TODO:fazer struct funcionar certinho
+//tipos primiticos: int, float, char
 primitiveType
     :   'int'
     |   'float'
     |   'char'
     ;
 
+//parametros de funcao: aceita apenas () ou uma lista de parametros (int param1, int param2)
 formalParameters
     :   '(' formalParameterList? ')'
     ;
 
+//parametros formais separados por virgula: int param1, char param2
 formalParameterList
     :   formalParameter (',' formalParameter)*
     ;
 
-formalParameter
-    :   typeType variableDeclaratorId
+//Apenas outro alias para identificador
+formalParameterDeclaratorId
+    :   Identifier
     ;
 
+//declaracao formal de um id de parametro: identificador contendo ou nao []
+formalParameter
+    :   typeType formalParameterDeclaratorId ('[' ']')*
+    ;
+
+//corpo de metodo eh composto por um body
 methodBody
     :   block
     ;
 
-
+//literais: valores para int, float, e char
 literal
     :   IntegerLiteral
     |   FloatingPointLiteral
     |   CharacterLiteral
     ;
 
-//Struct
+//Struct simples criada para brincar um pouco
 structDeclaration
     :   'struct' Identifier '{' (structVaribleDeclaration)+ '}'
     ;
@@ -87,19 +94,19 @@ structDeclarationStatement
     :   structDeclaration ';'
     ;
 
-// STATEMENTS / BLOCKS
-
-
+// bloco pode conter 00 ou mais statements de bloco dentro de chaves {}
 block
     :   '{' blockStatement* '}'
     ;
 
+//block statement pode ser uma declaracao de variave, um struct, ou um statement simples
 blockStatement
     :   localVariableDeclarationStatement
     |   structDeclarationStatement
     |   statement
     ;
 
+//uma declaracao de variavel com ; no final
 localVariableDeclarationStatement
     :    localVariableDeclaration ';'
     ;
@@ -108,7 +115,7 @@ localVariableDeclaration
     :   typeType variableDeclarators
     ;
 
-//TODO: Ajustar o if, e while
+//statement pode ser um novo bloco, um statement de if, de while, retorno, ;, ou uma statmentExpression em si
 statement
     :   block
     |   'if' parExpression statement ('else' statement)?
@@ -118,12 +125,14 @@ statement
     |   statementExpression ';'
     ;
 
-// EXPRESSIONS
+/*EXPRESSOES*/
 
+//expressao entre parenteses
 parExpression
     :   '(' expression ')'
     ;
 
+//expressao ou lista de expressoes separadas por virgula
 expressionList
     :   expression (',' expression)*
     ;
@@ -132,15 +141,14 @@ statementExpression
     :   expression
     ;
 
-//TODO: olhar mais a respeito do  |   expression '(' expressionList? ')'
 expression
-    :   primary
-//    |   expression '(' expressionList? ')'
+    :   primary //Alternativa necessaria para regras com recursividade a esquerda
     |   expression ('*'|'/') expression
     |   expression ('+'|'-') expression
     |   expression ('<=' | '>=' | '>' | '<') expression
     |   expression ('==' | '!=') expression
     |   <assoc=right> expression '=' expression
+//    |   expression '(' expressionList? ')'
     ;
 
 primary
@@ -149,18 +157,21 @@ primary
     |   Identifier
     ;
 
-arguments
-    :   '(' expressionList? ')'
-    ;
+////argumentos de uma funcao. Obs: Nao utilizados na linguagem CMinus
+//arguments
+//    :   '(' expressionList? ')'
+//    ;
+
+////Testes para exibicao de erros
+//localVariableDeclarationStatementErro
+//    :    localVariableDeclaration ~(';') {System.out.println("Faltou ponto e virgula");}
+//    ;
 
 // LEXER
-
-// §3.9 Keywords
-
-
-
+//Palavras reservadas da linguagem
 INT     : 'int';
 FLOAT   : 'float';
+CHAR   : 'char';
 STRUCT  : 'struct';
 IF      : 'if';
 ELSE    : 'else';
@@ -168,8 +179,8 @@ WHILE   : 'while';
 VOID    : 'void';
 RETURN  : 'return';
 
-// §3.10.1 Integer Literals
 
+/*Literal de Inteiros*/
 IntegerLiteral
     :   DecimalIntegerLiteral
     ;
@@ -201,7 +212,7 @@ NonZeroDigit
     :   [1-9]
     ;
 
-// §3.10.2 Floating-Point Literals
+/*Literal de ponto flutuante*/
 
 FloatingPointLiteral
     :   DecimalFloatingPointLiteral
@@ -234,11 +245,7 @@ Sign
     :   [+-]
     ;
 
-// §3.10.3 Boolean Literals
-
-// §3.10.4 Character Literals
-// §3.10.4 Character Literals
-
+//Caracter: um unico valor dentro entre aspas simples 'c'
 CharacterLiteral
     :   '\'' SingleCharacter '\''
     ;
@@ -248,8 +255,7 @@ SingleCharacter
     :   ~['\\]
     ;
 
-// §3.10.5 String Literals
-
+//Strings: Definidos porem nao utilizados
 StringLiteral
     :   '"' StringCharacters? '"'
     ;
@@ -264,8 +270,7 @@ StringCharacter
     :   ~["\\]
     ;
 
-// §3.11 Separators
-
+//Separadores
 LPAREN          : '(';
 RPAREN          : ')';
 LBRACE          : '{';
@@ -274,8 +279,7 @@ LBRACK          : '[';
 RBRACK          : ']';
 SEMI            : ';';
 
-// §3.12 Operators
-
+//Operadores
 ASSIGN          : '=';
 LT              : '<';
 EQUAL           : '==';
@@ -287,15 +291,15 @@ SUB             : '-';
 MUL             : '*';
 DIV             : '/';
 
-// §3.8 Identifiers (must appear after all keywords in the grammar)
-
+//Identificador eh qualquer cadeida de caracteres comecando com uma letra e podendo ter numeros depois desde que nao
+//seja equivalente a alguma palavra reservada
 Identifier
     :   Letter (Letter | Digit)*
     ;
 
 fragment
 Letter
-    :   [a-z] // these are the "java letters" below 0x7F
+    :   [a-z] // letras de a-z. Obs.: Apenas minusculas
     ;
 
 
@@ -309,3 +313,12 @@ WS  :  [ \t\r\n\u000C]+ -> channel(HIDDEN)
 COMMENT
     :   '/*' .*? '*/' -> channel(HIDDEN)
     ;
+//
+//COMENTARIO
+//    :    '/*' .*? '*/' {skip();}
+//    ;
+//WS  :   ( ' '
+//        | '\t'
+//        | '\r'
+//        | '\n'
+//        ) {skip();}

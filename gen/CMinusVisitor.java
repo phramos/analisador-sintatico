@@ -70,6 +70,12 @@ public interface CMinusVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFormalParameterList(CMinusParser.FormalParameterListContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link CMinusParser#formalParameterDeclaratorId}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFormalParameterDeclaratorId(CMinusParser.FormalParameterDeclaratorIdContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link CMinusParser#formalParameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -177,4 +183,10 @@ public interface CMinusVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitArguments(CMinusParser.ArgumentsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CMinusParser#localVariableDeclarationStatementErro}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLocalVariableDeclarationStatementErro(CMinusParser.LocalVariableDeclarationStatementErroContext ctx);
 }
